@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import Footer from "../components/Footer"
 import logo from "../photos/logo.JPG"
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { AddUser } from "../redux/apiCalls"
+
 
 const Container = styled.div`
     width: 100vw;
@@ -56,6 +60,22 @@ const Name = styled.h1`
 `
 
 const Register = () => {
+
+    const [inputs, setInputs] = useState({})
+    const dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        setInputs((prev)=> {
+            return {...prev, [e.target.name]: e.target.value}
+        })
+    }
+    console.log(inputs)
+    const handleClick = (e) => {
+        e.preventDefault();
+        const user = {...inputs}
+        AddUser(user, dispatch)
+    }
+
   return (
     <Container>
     <Logo src={logo}></Logo>
@@ -63,17 +83,15 @@ const Register = () => {
         <Wrapper>
             <Title>CREATE AN ACCOUNT</Title>
             <Form>
-                <Input placeholder = "Name"/>
-                <Input placeholder = "Last Name"/>
-                <Input placeholder = "Email"/>
-                <Input placeholder = "Username"/>
-                <Input placeholder = "Password"/>
-                <Input placeholder = "Confirm password"/>
+                <Input name="email" type="text" onChange={handleChange} placeholder = "Email"/>
+                <Input name="username" type="text" onChange={handleChange} placeholder = "Username"/>
+                <Input name="password" type="text" onChange={handleChange} placeholder = "Password"/>
+                <Input name="password" placeholder = "Confirm password"/>
                 <Agreement>
                     By creating an account, I consent to the processing of my personal
                     data in accourdance with the <b>PRIVACY POLICY</b> 
                 </Agreement>
-                <Button>CREATE</Button>
+                <Button onClick={handleClick}>CREATE</Button>
             </Form>
         </Wrapper>
         <Footer></Footer>

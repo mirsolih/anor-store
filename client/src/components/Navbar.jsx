@@ -57,7 +57,10 @@ const MenuItem = styled.div`
     cursor: pointer;
     margin-left: 25px;
 `
-
+const Button = styled.button`
+    background-color: rgb(102,12,33);
+    color: wheat;
+`
 const Navbar = () => {
     const quantity = useSelector(state=>state.cart.quantity)
     const dispatch = useDispatch()
@@ -81,13 +84,13 @@ const Navbar = () => {
             </Center>
             <Right>
                 <Link to="/register">
-                <MenuItem>REGISTER</MenuItem>
+                <MenuItem><Button>REGISTER</Button></MenuItem>
                 </Link>
                 <Link to="/login">
-                    <MenuItem>SIGN IN</MenuItem>
+                    <MenuItem><Button>SIGN IN</Button></MenuItem>
                 </Link>
                 <Link onClick={handleClick}>
-                    <MenuItem >LOG OUT</MenuItem>
+                    <MenuItem><Button>LOG OUT</Button></MenuItem>
                 </Link>
                 <Link to="/cart">
                 <MenuItem>

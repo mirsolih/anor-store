@@ -129,11 +129,15 @@ const Button = styled.button`
 `
 
 
+
 function Cart() {
     const cart = useSelector((state)=>state.cart)
     const [stripeToken, setStripeToken] = useState(null)
     const history = useHistory()
 
+    const navigateHome = () => {
+        history.push("/")
+    }
     const onToken = (token) => {
         setStripeToken(token);
     }
@@ -157,12 +161,7 @@ function Cart() {
         <Wrapper>
             <Title>YOUR BAG</Title>
             <Top>
-                <TopButton>Continue shopping</TopButton>
-                <TopTexts>
-                    <TopText>Shopping bag(2)</TopText>
-                    <TopText>Your wishlist(0)</TopText>
-                </TopTexts>
-                <TopButton type="filled">Checkout now</TopButton>
+                <TopButton onClick={navigateHome}>Continue shopping</TopButton>
             </Top>
             <Bottom>
                 <Info>

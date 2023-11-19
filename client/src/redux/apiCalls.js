@@ -1,5 +1,5 @@
-import { publicRequest } from "../requestMethods";
-import { loginFailure, loginStart, loginSuccess, logoutState } from "./userRedux"
+import { publicRequest, userRequest } from "../requestMethods";
+import { addUserFailure, addUserStart, addUserSuccess, loginFailure, loginStart, loginSuccess, logoutState } from "./userRedux"
 
 export const login = async (dispatch, user)=>{
     dispatch(loginStart());
@@ -14,4 +14,15 @@ export const login = async (dispatch, user)=>{
 export const logout = async (dispatch, token) => {
     console.log("Logout featuire evoked")
     console.log(dispatch, token)
+}
+
+export const AddUser = async (user, dispatch) =>{
+    const res = await userRequest.post('/auth/register', user);
+    dispatch(addUserStart());
+    try{
+        const res = AddUser.post(`/auth/register`, user);
+        dispatch(addUserSuccess(res.data));
+    } catch(err){
+        dispatch(addUserFailure());
+    }
 }

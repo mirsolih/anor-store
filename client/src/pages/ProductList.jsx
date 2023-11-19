@@ -60,9 +60,9 @@ const ProductList = () => {
                 <Option disabled >
                     Material
                 </Option>
-                <Option>Atlas</Option>
-                <Option>Adras</Option>
-                <Option>Solid</Option>
+                <Option value="Atlas">Atlas</Option>
+                <Option value="Adras">Adras</Option>
+                <Option value="Solid">Solid</Option>
             </Select>
             </Filter>
             <Filter><FilterText>Sort Products:</FilterText>
