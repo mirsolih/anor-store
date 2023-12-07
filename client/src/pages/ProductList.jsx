@@ -13,17 +13,22 @@ const Container=styled.div`
 `;
 const Title=styled.h1`
     font-family: 'Cormorant Garamond', serif;
-    font-family: 'Playfair Display', serif;`;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 200;
+    `
 const FilterContainer=styled.div`
     display: flex;
     justify-content: space-between;
+    font-weight: 200;
 `;
 const Filter=styled.div`
     margin: 20px;
 `;
 const FilterText=styled.span`
+    font-family: 'Cormorant Garamond', serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 200;
     margin-right: 20px;
 `;
 
@@ -53,7 +58,7 @@ const ProductList = () => {
     <Container>
         <Announcement/>
         <Navbar/>
-        <Title>{cat}</Title>
+        <Title>{cat} products</Title>
         <FilterContainer>
             <Filter><FilterText>Filter Products</FilterText>
             <Select name="material" onChange={handleFilters}>

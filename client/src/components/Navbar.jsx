@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Parse from 'parse/dist/parse.min.js';
+import { logout } from '../redux/userRedux';
 
 
 const Container = styled.div`
@@ -63,10 +65,17 @@ const Button = styled.button`
 `
 const Navbar = () => {
     const quantity = useSelector(state=>state.cart.quantity)
+    const user = useSelector(state => state.user.currentUser)
+    console.log(user)
     const dispatch = useDispatch()
     const history=useHistory();
-    const handleClick = () => {
-        localStorage.clear()
+    const [currentUser, setCurrentUser] = useState(null);
+
+    const handleClick = (e) => {
+        //e.preventDefault()
+        //logout(dispatch, user);
+        //history.push("/")
+
     }
 
   return (

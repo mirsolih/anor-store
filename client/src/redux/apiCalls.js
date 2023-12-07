@@ -17,10 +17,10 @@ export const logout = async (dispatch, token) => {
 }
 
 export const AddUser = async (user, dispatch) =>{
-    const res = await userRequest.post('/auth/register', user);
+    console.log("This is user, ",user)
     dispatch(addUserStart());
     try{
-        const res = AddUser.post(`/auth/register`, user);
+        const res = userRequest.post(`/auth/register`, user);
         dispatch(addUserSuccess(res.data));
     } catch(err){
         dispatch(addUserFailure());

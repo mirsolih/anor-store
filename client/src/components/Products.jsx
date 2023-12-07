@@ -8,7 +8,8 @@ import { IkatDresses } from '../data'
 
 
 const Container = styled.div`
-    padding: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

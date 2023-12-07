@@ -12,6 +12,7 @@ const Film =styled.video`
     height: 800px;
     object-fit: cover;
     z-index: -1;
+    overflow-x: hidden;
     
 `;
 
@@ -19,7 +20,7 @@ const Film =styled.video`
 const Video = () => {
   return (
     <Container>
-        <Film autoPlay muted preload='none' controls loop src={video}/> 
+        <Film autoPlay muted preload='none' loop src={video}/> 
     </Container>
   )
 }

@@ -21,19 +21,25 @@ const ImgContainer=styled.div`
 
 `
 const Image=styled.img`
-  width: 100%;
-
+  width: 65%;
+  align-items: center;
+  margin-left: 100px;
 `
-const Title=styled.h1``
+const Title=styled.h1`
+  text-transform: uppercase;`
 const Desc=styled.p`
   margin: 20 px ;
+  
 `
 const InfoContainer=styled.div`
-  flex: 1;
+font-family: 'Cormorant Garamond', serif;
+font-weight: 300;
+flex: 2;
+font-size: 20px;
 `
 const Price=styled.span`
   font-weight: 100;
-  font-size: 40px;
+  font-size: 20px;
   `
 const FilterContainer = styled.div`
   width: 50%;
@@ -135,7 +141,7 @@ const handleClick = ()=>{
             <InfoContainer>
             <Title>{product.title}</Title>
             <Desc>{product.desc}</Desc>
-            <Price>$ {product.price}</Price> 
+            <Price>Price: $ {product.price}</Price> 
             <FilterContainer>
               <Filter>
                 <FilterTitle>Size</FilterTitle>

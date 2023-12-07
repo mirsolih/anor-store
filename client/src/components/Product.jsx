@@ -34,7 +34,7 @@ const Container = styled.div`
     }
 `
 const Image = styled.img`
-    height: 100%;
+    height:90%;
     z-index: 2;
 `
 const Icon = styled.div`
@@ -45,7 +45,6 @@ const Icon = styled.div`
     align-items: center;
     justify-content: center;
     display: flex;
-    margin: 10px;
     transition: all 0.5s ease;
     &:hover {
         background-color: whitesmoke;

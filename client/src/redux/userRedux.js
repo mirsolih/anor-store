@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const userSlice = createSlice({
     name: "user",
     initialState : {
+        users:[],
         currentUser: null,
         isFetching:false,
         error: false,
@@ -20,6 +21,7 @@ const userSlice = createSlice({
             state.error=true
         },
         logout:(state) => {
+            //state.currentUser=null;
             console.log(state.currentUser)
         },
         // Add user
@@ -29,7 +31,7 @@ const userSlice = createSlice({
          },
         addUserSuccess: (state, action) => {
             state.isFetching = false;
-            state.products.push(action.payload);
+            state.users.push(action.payload);
         },
         addUserFailure: (state) => {
             state.isFetching = false;

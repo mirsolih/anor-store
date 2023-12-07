@@ -16,6 +16,7 @@ const Container = styled.div`
 `
 const Wrapper = styled.div`
     padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
 `
 const Title = styled.h1`
     font-weight: 200;
@@ -132,6 +133,7 @@ const Button = styled.button`
 
 function Cart() {
     const cart = useSelector((state)=>state.cart)
+    console.log(cart)
     const [stripeToken, setStripeToken] = useState(null)
     const history = useHistory()
 
@@ -170,16 +172,13 @@ function Cart() {
                         <ProductDetails>
                             <Image src={product.img}/>
                             <Details>
-                                <ProductName><b>Product: </b>{product.img}</ProductName>
-                                <ProductID><b>Product ID: </b>{product._id}</ProductID>
+                                <ProductName><b>Product: </b>{product.title}</ProductName>
                                 <ProductSize><b>Size: </b>{product.size}</ProductSize>
                             </Details>
                         </ProductDetails>
                         <PriceDetails>
                             <ProductAmountContainer>
-                                <Add/>
                                 <ProductAmount>{product.quantity}</ProductAmount>
-                                <Remove/>
                             </ProductAmountContainer>
                             <ProductPrice>$ {product.price * product.quantity}</ProductPrice>
 
