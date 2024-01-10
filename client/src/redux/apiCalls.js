@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { publicRequest, userRequest } from "../requestMethods";
 import { addUserFailure, addUserStart, addUserSuccess, loginFailure, loginStart, loginSuccess, logoutState } from "./userRedux"
+
+
 
 export const login = async (dispatch, user)=>{
     dispatch(loginStart());
@@ -11,9 +14,10 @@ export const login = async (dispatch, user)=>{
     }
 }
 
-export const logout = async (dispatch, token) => {
+export const Logout = async (dispatch, user) => {
+    //dispatch(logoutState(user))
+    //console.log(dispatch)
     console.log("Logout featuire evoked")
-    console.log(dispatch, token)
 }
 
 export const AddUser = async (user, dispatch) =>{

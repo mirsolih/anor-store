@@ -6,11 +6,14 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Parse from 'parse/dist/parse.min.js';
-import { logout } from '../redux/userRedux';
+import { Logout } from '../redux/apiCalls';
+import { render } from 'react-dom';
+import {mobile} from "../responsive"
 
 
 const Container = styled.div`
     height: 60 px;
+    ${mobile({height: "50px"})}
 `;
 
 const Wrapper = styled.div`
@@ -18,6 +21,7 @@ padding: 10px 20px;
 display: flex;
 justify-content: space-between;
 position: static;
+${mobile({padding: "10px 0px"})}
 `;
 
 const Left = styled.div`
@@ -28,6 +32,7 @@ align-items: center;
 const Language = styled.span`
     font-size: 14px;
     cursor: pointer;
+    ${mobile({display: "none"})}
 `
 const SearchContainer = styled.div`
     border: 1px solid lightgray;
@@ -38,6 +43,7 @@ const SearchContainer = styled.div`
 `
 const Input = styled.input`
     border: none;
+    ${mobile({display: "none"})}
 `
 const Center = styled.div`
 flex: 1;
@@ -47,21 +53,25 @@ const Logo = styled.h1`
     font-family: 'Tangerine', cursive;
     font-weight: 800;
     font-size: 30px;
+    ${mobile({fontSize: "24px"})}
 `
 const Right = styled.div`
 flex: 1;
 display: flex;
 align-items: center;
 justify-content: flex-end;
+${mobile({flex:2, justifyContent: "center"})}
 `
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
+    ${mobile({fontSize: "12px", marginLeft: "10px"})}
 `
 const Button = styled.button`
     background-color: rgb(102,12,33);
     color: wheat;
+    ${mobile({fontSize: "10px"})}
 `
 const Navbar = () => {
     const quantity = useSelector(state=>state.cart.quantity)
@@ -73,7 +83,8 @@ const Navbar = () => {
 
     const handleClick = (e) => {
         //e.preventDefault()
-        //logout(dispatch, user);
+         console.log("logout evoked")
+        Logout(user)
         //history.push("/")
 
     }

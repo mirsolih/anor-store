@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import styled  from 'styled-components'
-
+import { mobile } from '../responsive'
 const Container = styled.div`
     flex: 1;
     margin: 3px;
@@ -24,6 +24,7 @@ const Info = styled.div`
     flex-direction: column;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.50);
+    ${mobile({fontSize: "5px"})}
 `
 const Title = styled.h1`
     color: wheat;
@@ -37,6 +38,7 @@ const Button = styled.button`
     background-color: black;
     cursor: pointer;
     font-weight: 600;
+    ${mobile({height: "20px", width:"70px", fontSize: "8px"})}
 `
 
 const CategoryItem = ({item}) => {

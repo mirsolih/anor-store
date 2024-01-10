@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import {mobile} from "../responsive"
 const Container = styled.div`
     height: 30px;
     background-color: rgb(102,12,33);
@@ -10,6 +10,7 @@ const Container = styled.div`
     font-style: 14px;
     font-weight: bold;
     width: 100%;
+    ${mobile({fontSize: "10px"})}
 
 `
 

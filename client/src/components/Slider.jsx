@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import logo from "../photos/logo.JPG"
-
+import {mobile} from "../responsive"
 const Container = styled.div`
     width: 100%;
     height: 100%;
@@ -33,6 +33,7 @@ const InfoContainer = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
+    ${mobile({fontSize: "5px"})}
 `
 const Title = styled.h1`
     padding-top: 50px;

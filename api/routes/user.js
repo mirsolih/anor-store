@@ -30,18 +30,17 @@ router.delete("/:id", verifyTokenAndAuth, async (req, res)=>{
 })
 
 // GET
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res)=>{
+router.get("/find/:id", async (req, res)=>{
     try{
         const user = await User.findById(req.params.id)
-        const { password, ...others } = user._doc;
-        res.status(200).json(others);
+        res.status(200).json(user);
     }catch(err){
         res.status(500).json(err)
     }
 })
 
 // GET ALL USERS
-router.get("/", verifyTokenAndAdmin, async (req, res)=>{
+router.get("/", async (req, res)=>{
     const query = req.query.new;
     try{
         const users = query 

@@ -2,10 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import {useDispatch} from "react-redux"
 import { login } from '../../redux/apiCalls'
+import { useSelector } from "react-redux";
 
 function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+
+    const user = useSelector((state) => state.user.currentUser);
+    console.log(user)
+    
     const dispatch = useDispatch()
 
     const handleClick = (e) =>{

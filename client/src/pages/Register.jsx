@@ -85,8 +85,8 @@ const Register = () => {
             <Form>
                 <Input name="email" type="text" onChange={handleChange} placeholder = "Email"/>
                 <Input name="username" type="text" onChange={handleChange} placeholder = "Username"/>
-                <Input name="password" type="text" onChange={handleChange} placeholder = "Password"/>
-                <Input name="password" placeholder = "Confirm password"/>
+                <Input name="password" type="password" onChange={handleChange} placeholder = "Password"/>
+                <Input name="password" type="password" placeholder="Confirm password"/>
                 <Agreement>
                     By creating an account, I consent to the processing of my personal
                     data in accourdance with the <b>PRIVACY POLICY</b> 
