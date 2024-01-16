@@ -74,6 +74,7 @@ const Register = () => {
         e.preventDefault();
         const user = {...inputs}
         AddUser(user, dispatch)
+        history.push("/")
     }
 
   return (

@@ -20,6 +20,17 @@ router.post("/register", async (req, res) => {
     
 })
 
+/// LOGOUT
+router.post("/logout", (req, res) => {
+    try {
+        res.cookie('token', '', { expires: new Date(0) });
+
+        res.status(200).json("Logged out successfully");
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 //LOGIN
 
 router.post("/login", async (req, res) => {

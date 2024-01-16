@@ -17,7 +17,7 @@ export const login = async (dispatch, user)=>{
 export const Logout = async (dispatch, user) => {
     //dispatch(logoutState(user))
     //console.log(dispatch)
-    console.log("Logout featuire evoked")
+    console.log("Logout feature evoked")
 }
 
 export const AddUser = async (user, dispatch) =>{

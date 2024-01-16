@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Parse from 'parse/dist/parse.min.js';
-import { Logout } from '../redux/apiCalls';
+import { logoutState } from '../redux/userRedux';
 import { render } from 'react-dom';
 import {mobile} from "../responsive"
 
@@ -50,7 +50,7 @@ flex: 1;
 text-align: center;
 `
 const Logo = styled.h1`
-    font-family: 'Tangerine', cursive;
+    font-family: 'Tangerine';
     font-weight: 800;
     font-size: 30px;
     ${mobile({fontSize: "24px"})}
@@ -83,9 +83,12 @@ const Navbar = () => {
 
     const handleClick = (e) => {
         //e.preventDefault()
-         console.log("logout evoked")
-        Logout(user)
-        //history.push("/")
+        console.log("logout evoked")
+        e.preventDefault();
+        console.log(user)
+        dispatch(logoutState());
+        // navigate('/');ush("/")
+        console.log(user,)
 
     }
 
@@ -103,15 +106,15 @@ const Navbar = () => {
                 <Logo>A N O R</Logo>
             </Center>
             <Right>
-                <Link to="/register">
+                { !user ? <Link to="/register">
                 <MenuItem><Button>REGISTER</Button></MenuItem>
-                </Link>
-                <Link to="/login">
+                </Link>: null }
+                { !user ? <Link to="/login">
                     <MenuItem><Button>SIGN IN</Button></MenuItem>
-                </Link>
+                </Link> : 
                 <Link onClick={handleClick}>
                     <MenuItem><Button>LOG OUT</Button></MenuItem>
-                </Link>
+                </Link> }
                 <Link to="/cart">
                 <MenuItem>
                     <Badge badgeContent={quantity} color="primary">
